@@ -53,6 +53,7 @@ public class HelloWorldUI extends UI {
 
         layout.addComponent(button);
         layout.addComponent(clickCounterLabel = new Label("Clicks: 0"));
+        clickCounterLabel.setId("counter");
     }
 
 }
