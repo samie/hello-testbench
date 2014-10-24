@@ -9,7 +9,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vaadin.version>7.3.1</vaadin.version>
+        <vaadin.version>7.3.3</vaadin.version>
         <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
     </properties>
     
@@ -22,12 +22,6 @@
     </repositories>
 
     <dependencies>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-testbench</artifactId>
-            <version>4.0.0.beta1</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-server</artifactId>
@@ -65,6 +59,14 @@
             <version>3.0.1</version>
             <scope>provided</scope>
         </dependency>
+        
+        <!-- Include TestBench API for "test" scope -->
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-testbench</artifactId>
+            <version>4.0.0.beta1</version>
+            <scope>test</scope>
+        </dependency>        
     </dependencies>
 
     <build>
@@ -90,6 +92,40 @@
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.2.3.v20140905</version>
+                <executions>
+                    <!-- Configure jetty to start/stop the application 
+                    for integration testing. -->
+                    <execution>
+                        <id>start-jetty</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>run-exploded</goal>
+                        </goals>
+                        <configuration>
+                            <scanIntervalSeconds>0</scanIntervalSeconds>
+                            <daemon>true</daemon>
+                            <stopKey>STOP</stopKey>
+                            <stopPort>8866</stopPort>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>stop-jetty</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                        <configuration>
+                            <stopPort>8866</stopPort>
+                            <stopKey>STOP</stopKey>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Automatically execute integration tests (src/test/**/*IT.java ) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.13</version>
             </plugin>
         </plugins>
     </build>

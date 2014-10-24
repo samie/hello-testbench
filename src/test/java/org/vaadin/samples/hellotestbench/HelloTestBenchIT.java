@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
  *
  * Once the license is installed, you can run this class as a JUnit test.
  */
-public class HelloTestBench extends TestBenchTestCase {
+public class HelloTestBenchIT extends TestBenchTestCase {
 
     @Before
     public void setUp() throws Exception {
