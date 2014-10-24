@@ -1,23 +1,34 @@
-hello-world
+hello-testbench
 ===========
 
-Simple Vaadin Hello World application. This project demonstrates:
- * Server side Java code
- * Event listener for Button
- * Notification
- * Labels in vertical layout
+Simple Vaadin Hello World application for Vaadin TestBench. This project demonstrates:
+ * Vaaidn TestBench Maven dependencies
+ * Automatic testing with Firefox
+ * Clicking buttons and validating Notification and Label values
 
 ### Usage:
 
 Make sure you have installed [Maven](http://maven.apache.org/) and [Git](http://git-scm.com/).
 
-    git clone https://github.com/vaadin-samples/hello-world.git
-    cd hello-world
+    git clone https://github.com/samie/hello-testbench.git
+    cd hello-testbench
     mvn jetty:run
     
 After these steps you have the application up and running at http://localhost:8080/
 
 You can find the code for the application in [HelloWorldUI.java](src/main/java/org/vaadin/samples/helloworld/HelloWorldUI.java).
+
+
+### Running the tests
+
+You need to have the Firefox broser installed in your machine where you execute the tests. 
+
+    mvn integration-test
+
+Vaadin TestBench test cases are automatically executed as part of integration test phase. During this phase an embedded 
+Jetty server instance is started to run the application itself, and then test case in
+[HelloWorldIT.java](src/test/java/org/vaadin/samples/tests/HelloWorldIT.java) is executed. This test 
+starts Firefox browser and simulates the given user interactions for the application and asserts correct behavior.
 
 ### License
 
