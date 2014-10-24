@@ -3,18 +3,18 @@ package org.vaadin.samples.hellotestbench;
 import com.vaadin.testbench.TestBenchTestCase;
 import com.vaadin.testbench.elements.ButtonElement;
 import com.vaadin.testbench.elements.LabelElement;
+import com.vaadin.testbench.elements.NotificationElement;
 import org.junit.After;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-
 import static org.junit.Assert.assertEquals;
 
 /**
  * This class contains JUnit tests, which are run using Vaadin TestBench 4.
- * 
+ *
  * To run this, first get an evaluation license from
  * https://vaadin.com/addon/vaadin-testbench and follow the instructions at
  * https://vaadin.com/directory/help/installing-cval-license to install it.
@@ -42,17 +42,25 @@ public class HelloTestBench extends TestBenchTestCase {
 
     @Test
     public void testClickButton() throws Exception {
-    	  openTestUrl();
-    		
+        openTestUrl();
+
+        // Make sure we do not have any clicks yet
+        assertEquals("Clicks: 0",
+                $(LabelElement.class).id("counter").getText());
+
         // Click the button
         ButtonElement clickMeButton = $(ButtonElement.class).
-        		caption("Click Me").first();
+                caption("Click Me").first();
         clickMeButton.click();
 
-        // There should now be one label
-        assertEquals(1, $(LabelElement.class).all().size());
+        // There should now be one notification
+        assertEquals(1, $(NotificationElement.class).all().size());
         // ... with the specified text
-        assertEquals("Thank you for clicking", 
-        		$(LabelElement.class).first().getText());
+        assertEquals("Thank you for clicking",
+                $(NotificationElement.class).first().getText());
+
+        assertEquals("Clicks: 1",
+                $(LabelElement.class).id("counter").getText());
+
     }
 }
