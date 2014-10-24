@@ -1,4 +1,4 @@
-package org.vaadin.samples.hellotestbench;
+package org.vaadin.samples.tests;
 
 import com.vaadin.testbench.TestBenchTestCase;
 import com.vaadin.testbench.elements.ButtonElement;
@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
  *
  * Once the license is installed, you can run this class as a JUnit test.
  */
-public class HelloTestBenchIT extends TestBenchTestCase {
+public class HelloWorldITCase extends TestBenchTestCase {
 
     @Before
     public void setUp() throws Exception {
