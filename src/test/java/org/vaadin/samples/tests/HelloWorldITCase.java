@@ -56,7 +56,7 @@ public class HelloWorldITCase extends TestBenchTestCase {
         // There should now be one notification
         assertEquals(1, $(NotificationElement.class).all().size());
         // ... with the specified text
-        assertEquals("Thank you for clicking",
+        assertEquals("Thank you for clicking.",
                 $(NotificationElement.class).first().getText());
 
         assertEquals("Clicks: 1",
