@@ -8,7 +8,7 @@ Simple Vaadin Hello World application for Vaadin TestBench. This project demonst
 
 ### Usage:
 
-Make sure you have installed [Maven](http://maven.apache.org/) and [Git](http://git-scm.com/). You also need to have the Firefox broser installed in your machine where you execute the tests. 
+Make sure you have installed [Maven](http://maven.apache.org/) and [Git](http://git-scm.com/). You also need to have the [Firefox browser](https://www.mozilla.org/en-US/firefox/new/) installed in your machine where you run the tests. 
 
     git clone https://github.com/samie/hello-testbench.git
     cd hello-testbench
@@ -19,7 +19,7 @@ Jetty server instance is started to run the application itself, and then test ca
 [HelloWorldITCase.java](src/test/java/org/vaadin/samples/tests/HelloWorldITCase.java) is executed. This test 
 starts Firefox browser and simulates the given user interactions for the application and asserts correct behavior.
 
-You can find the code for the application in [HelloWorldUI.java](src/main/java/org/vaadin/samples/helloworld/HelloWorldUI.java).
+You can find the code for the application in [HelloWorldUI.java](src/main/java/org/vaadin/samples/HelloWorldUI.java).
 
 
 ### License
