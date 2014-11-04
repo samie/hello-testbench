@@ -10,7 +10,7 @@ Simple Vaadin Hello World application for Vaadin TestBench. This project demonst
 
 Make sure you have installed [Maven](http://maven.apache.org/) and [Git](http://git-scm.com/). You also need to have the [Firefox browser](https://www.mozilla.org/en-US/firefox/new/) installed in your machine where you run the tests. 
 
-    git clone https://github.com/samie/hello-testbench.git
+    git clone https://github.com/vaadin/hello-testbench.git
     cd hello-testbench
     mvn verify
     
