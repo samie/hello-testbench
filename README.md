@@ -2,7 +2,7 @@ hello-testbench
 ===========
 
 Simple Vaadin Hello World application for Vaadin TestBench. This project demonstrates:
- * Vaaidn TestBench Maven dependencies
+ * Vaadin TestBench Maven dependencies
  * Automatic testing with Firefox
  * Clicking buttons and validating Notification and Label values
 
